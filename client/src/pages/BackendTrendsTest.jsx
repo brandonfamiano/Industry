@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 export default function BackendTrendsTest(){
@@ -26,8 +26,8 @@ export default function BackendTrendsTest(){
                         <img src={item.photo} alt="" />
                         <h3>{item.name}</h3>
                         <h2>{item.price}</h2>
-                        <h2>{item.description}</h2>
-                        <Link to={'`/trends/${item._id'}>View</Link>
+                        <h2 >{item.description}</h2>
+                        <Link to={`/trends/${item._id}`}>View</Link>
                     </div>
                 ))}  
             </div>

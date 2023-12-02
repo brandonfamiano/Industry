@@ -4,6 +4,7 @@ import axios from "axios";
 import BackendTest2 from "./pages/BackendTest2";
 import BackendTrendsTest from "./pages/BackendTrendsTest";
 import BackendAddTrendsTest from "./pages/BackendAddTrendsTest";
+import BackendItemPageTest from "./pages/BackEndItemPageTest";
 axios.defaults.baseURL ='http://localhost:4000'
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
         <Route path='/' element={<Backend/>}></Route>
         <Route path='/backend' element={<BackendTest2/>}/>
         <Route path='/backendTrends' element={<BackendTrendsTest/>}/>
-        <Route path='/backendTrends/add' element={<BackendAddTrendsTest/>}/>
+        <Route path='/backendtrends/add' element={<BackendAddTrendsTest/>}/>
+        <Route path="/backendtrends/:itemId" element={<BackendItemPageTest />} />
       </Routes>
     </div>
   )

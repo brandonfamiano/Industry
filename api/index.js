@@ -86,5 +86,14 @@ app.get('/trends', async(req, res) => {
     }
     
 })
+app.get('/trends/:id'), async (req,res)=>{
+    const{id} = req.params;
+    try{
+        const trendItem = await TrendItem.findOne({_id:id})
+        res.json(trendItem)
+    }catch (error){
+        res.status(500).json({error:'Internal Server Error'});
+    }
+}
 
 app.listen(4000);
