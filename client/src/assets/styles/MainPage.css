@@ -1,0 +1,93 @@
+
+
+.home__wrapper {
+    padding: 18px;
+}
+
+.home__nav-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.home__nav-card-button {
+    background-color: transparent;
+    border: 1px solid #43B02A;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 50px 50px;
+    border-radius: 8px;
+}
+
+.home__nav-card-button.active {
+    background-color: #43B02A;
+    color: #FFFFFF;
+} 
+
+.home__nav-card-button span {
+    margin-left: 8px;
+}
+
+
+.home__graph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #D9D9D9;
+    padding-bottom: 12px;
+}
+
+.home__graph-header-title {
+    text-transform: capitalize;
+}
+
+.home__graph-header-action-button {
+    text-transform: uppercase;
+    color: #446fa7;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 5px
+}
+
+.home__graph-body {
+    padding: 12px 0;
+}
+
+.home__graph-body-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.home__graph-body-header-title {
+    flex-grow: 1;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.home__graph-body-header-subtitle {
+    margin-top: 12px;
+    font-size: 12px;
+}
+
+.home__graph-compare-button {
+    font-size: 12px;
+    font-weight: 600;
+    color: #446fa7;
+}
+
+.home__graph-button-group button {
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 4px;
+    border: 1px solid #D9D9D9
+}
+
+.home__graph-button-group .active {
+    background-color: #446fa7;
+    color: #FFFFFF;
+    border: none;
+}
