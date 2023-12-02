@@ -1,0 +1,85 @@
+.menu {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+
+  &__container {
+    flex-grow: 1;
+    padding: 16px;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    margin: 16px 0;
+
+    &--title {
+      color: black;
+      margin: 0;
+      text-align: left;
+    }
+
+    &--text {
+      display: flex;
+      flex-direction: column;
+      color: black;
+      margin: 0 16px;
+    }
+  }
+
+  &__main {
+    &--buttons {
+      text-align: left;
+      display: flex;
+      flex-direction: row;
+      padding: 24px 0;
+    }
+  }
+
+  &__button {
+    &--text {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+      padding-left: 16px;
+    }
+  }
+  &__addbutton {
+    display: flex;
+    flex-direction: row;
+    background-color: #43b02a;
+    color: white;
+    text-decoration: none;
+    padding: 20px 40px;
+    width: 335px;
+    margin-right: 16px;
+    border-radius: 4px;
+  }
+  &__editbutton {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    padding: 20px 40px;
+    border: #43b02a 1px solid;
+    border-radius: 4px;
+    width: 217px;
+  }
+
+  &__section {
+    &--title {
+      color: black;
+      width: 1400px;
+      background-color: #daf0d5;
+      padding: 16px 0px;
+      text-align: center;
+      margin: 0;
+    }
+    &__container {
+      &--item {
+        color: black;
+      }
+    }
+  }
+}
