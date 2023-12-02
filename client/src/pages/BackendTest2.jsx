@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
+
+//create new item functionality//
 export default function BackendTest2(){
     const [name,setName] =useState('');
     const [category,setCategory] = useState('');
@@ -9,6 +11,8 @@ export default function BackendTest2(){
     const [photo,setPhotos] = useState('');
     const [redirect, setRedirect] =useState(false);
 
+
+    //posts the new item to database, will throw an error if the price is not a number, etc//
     async function handleAddItem(e){
         e.preventDefault();
         try{

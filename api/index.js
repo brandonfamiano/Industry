@@ -12,20 +12,40 @@ app.use(cors());
 mongoose.connect('mongodb+srv://admin:admin@cluster0.5yklaxo.mongodb.net/?retryWrites=true&w=majority');
 
 
-app.get('/test', (req,res) =>{
-    res.json('test')
-})
 
-app.post('/menu', (req,res) => {
+app.post('/menu', async(req,res) => {
+    try{
     const{name,category,price,description,photo} = req.body;
-    const menuDoc = MenuItem.create({
+    const menuDoc = await MenuItem.create({
         name,
         category,
         price,
         description,
         photo,
-    })
+    });
     res.json(menuDoc);
+    } catch (error) {
+        console.error('error adding menu item', error);
+        res.status(500).json({error:'Internal Server Error'})
+    }
+    
+})
+app.post('/trends', async(req,res) => {
+    try{
+    const{name,price,food,description,photo} = req.body;
+    const trendDoc = await TrendItem.create({
+        name,
+        price,
+        food,
+        description,
+        photo,
+    });
+    res.json(trendDoc);
+    } catch (error) {
+        console.error('error adding trend item', error);
+        res.status(500).json({error:'Internal Server Error'})
+    }
+    
 })
 
 app.post('/upload-by-link', async (req,res) => {
@@ -38,11 +58,33 @@ app.post('/upload-by-link', async (req,res) => {
     res.json(__dirname+'/uploads' +NewName,);
 })
 
-app.get('/menu', async (req, res) => {
-    res.json(MenuItem.find);
+app.get('/menu', async(req, res) => {
+    try{
+        const menuItem = await MenuItem.find();
+        if (!menuItem){
+            return res.status(404).json({error: 'No Menu Found'});
+        }
+        res.json(menuItem);
+    }
+    
+    catch(error){
+        res.status(500).json({error: 'internal server error'});
+    }
+    
 })
-app.get('/trends', async (req, res) => {
-    res.json(TrendItem.find);
+app.get('/trends', async(req, res) => {
+    try{
+        const trendItem = await TrendItem.find();
+        if (!trendItem){
+            return res.status(404).json({error: 'No Trends Found'});
+        }
+        res.json(trendItem);
+    }
+    
+    catch(error){
+        res.status(500).json({error: 'internal server error'});
+    }
+    
 })
 
 app.listen(4000);

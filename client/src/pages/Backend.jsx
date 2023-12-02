@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 export default function Backend(){
+    //use to get menu items from database//
     const [menu, setMenu] = useState([]);
     useEffect(() =>{
         axios.get('/menu').then(({ data }) =>{
@@ -10,9 +13,9 @@ export default function Backend(){
         .catch((error) => {
             console.log('error'), error;
         })
-    },);
+    },[]);
 
-
+    //assigns menu items to a card, view button links to an individual page about the item with more details//
     return (
         <div className='menu'>
             Menu
@@ -24,6 +27,7 @@ export default function Backend(){
                         <h3>{item.name}</h3>
                         <h2>{item.category}</h2>
                         <h2>{item.price}</h2>
+                        <Link to={'`/menu/${item._id'}>View</Link>
                     </div>
                 ))}  
             </div>
