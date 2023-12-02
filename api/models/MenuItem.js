@@ -8,3 +8,6 @@ const MenuItemSchema = new Schema({
     description: String,
     photo: String,
 })
+
+const MenuModel = mongoose.model('MenuItem', MenuItemSchema);
+module.exports = MenuModel;
