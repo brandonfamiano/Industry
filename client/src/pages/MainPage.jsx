@@ -90,7 +90,7 @@ export const MainPage = () => {
         <Link to="/" className="home__nav-card-button">
           events
         </Link>
-        <Link to="/" className="home__nav-card-button">
+        <Link to="/trends" className="home__nav-card-button">
           food trend
         </Link>
       </div>
@@ -140,7 +140,12 @@ export const MainPage = () => {
                   >
                     <div className="home__graph-body-bar-graph-bar-label">
                       <p>{item.name}</p>
-                      <p>{item.value.toLocaleString("en-US", {style:"currency", currency:"USD"})}</p>
+                      <p>
+                        {item.value.toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                        })}
+                      </p>
                     </div>
                   </div>
                 );
