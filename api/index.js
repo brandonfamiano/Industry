@@ -12,6 +12,15 @@ app.use(cors());
 mongoose.connect('mongodb+srv://admin:admin@cluster0.5yklaxo.mongodb.net/?retryWrites=true&w=majority');
 
 
+app.get('/trend/:id', async (req,res)=>{
+    const{id} = req.params;
+    try{
+        const trendItem = await TrendItem.findOne({_id:id})
+        res.json(trendItem)
+    }catch (error){
+        res.status(500).json({error:'Internal Server Error'});
+    }
+})
 
 app.post('/menu', async(req,res) => {
     try{
@@ -72,9 +81,10 @@ app.get('/menu', async(req, res) => {
     }
     
 })
-app.get('/trends', async(req, res) => {
+app.get('/trends/food', async(req, res) => {
     try{
-        const trendItem = await TrendItem.find();
+        // only category: food
+        const trendItem = await TrendItem.find({category: 'food'});
         if (!trendItem){
             return res.status(404).json({error: 'No Trends Found'});
         }
@@ -84,16 +94,24 @@ app.get('/trends', async(req, res) => {
     catch(error){
         res.status(500).json({error: 'internal server error'});
     }
-    
 })
-app.get('/trends/:id'), async (req,res)=>{
-    const{id} = req.params;
-    try{
-        const trendItem = await TrendItem.findOne({_id:id})
-        res.json(trendItem)
-    }catch (error){
-        res.status(500).json({error:'Internal Server Error'});
-    }
-}
 
-app.listen(4000);
+app.get('/trends/drink', async(req, res) => {
+    try{
+        const trendItem = await TrendItem.find({category: 'drink'});
+        if (!trendItem){
+            return res.status(404).json({error: 'No Trends Found'});
+        }
+        res.json(trendItem);
+    }
+    
+    catch(error){
+        res.status(500).json({error: 'internal server error'});
+    }
+})
+
+
+
+app.listen(4000,() => {
+    console.log(`Server is running`);
+  });
