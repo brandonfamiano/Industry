@@ -1,8 +1,28 @@
 import "./Menu.scss";
 import SideNav from "../../components/SideNav/SideNav";
 import MenuItem from "../../components/MenuItem/MenuItem";
+import "../../data/food-menu.json";
 
 export default function Menu() {
+  const categories = [
+    {
+      id: 1,
+      name: "Special",
+    },
+    {
+      id: 2,
+      name: "Appetizer",
+    },
+    {
+      id: 3,
+      name: "Main",
+    },
+    {
+      id: 4,
+      name: "Beverage",
+    },
+  ];
+
   return (
     <div className="menu">
       <SideNav />
@@ -67,12 +87,14 @@ export default function Menu() {
               <p className="menu__button--text edititem">EDIT</p>
             </a>
           </div>
-          <div className="menu__section">
-            <h3 className="menu__section--title">Special</h3>
-            <div className="menu__section__container">
-              <MenuItem />
+          {categories.map((category, key) => (
+            <div className="menu__section">
+              <h3 className="menu__section--title">{category.name}</h3>
+              <div className="menu__section__container">
+                <MenuItem />
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import Menu from "./pages/Menu/Menu.jsx";
 import Backend from "./pages/Backend";
 import { Route, Routes } from "react-router-dom";
 import axios from "axios";
@@ -7,6 +6,8 @@ import BackendTrendsTest from "./pages/BackendTrendsTest";
 import BackendAddTrendsTest from "./pages/BackendAddTrendsTest";
 import BackendItemPageTest from "./pages/BackEndItemPageTest";
 axios.defaults.baseURL = "http://localhost:4000";
+import Menu from "./pages/Menu/Menu.jsx";
+
 function App() {
   return (
     <div>
@@ -19,6 +20,7 @@ function App() {
           path="/backendtrends/:itemId"
           element={<BackendItemPageTest />}
         />
+        <Route path="/menu" element={<Menu />} />
       </Routes>
     </div>
   );
