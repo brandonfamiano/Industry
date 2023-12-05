@@ -22,48 +22,6 @@ const localizer = dateFnsLocalizer({
   locales
 })
 const events =[
-  {
-    title: "Pair Programming",
-    allday: true,
-    start: new Date(2023,8, 16, 11),
-    end: new Date(2023,8  , 16, 16,45)
-  },
-  {
-    title: "Pair Programming Presentations",
-    allday: true,
-    start: new Date(2023,8, 16, 16,45),
-    end: new Date(2023,8  , 16, 17,30)
-  },
-  {
-    title: "Open Studio",
-    allday: true,
-    start: new Date(2023,8, 16, 10),
-    end: new Date(2023,8  , 16, 11)
-  },
-  {
-    title: "Open Studio",
-    allday: true,
-    start: new Date(2023,8, 17, 10,30),
-    end: new Date(2023,8  , 17,12,30)
-  },
-  {
-    title: "LEC: Intro to Databases",
-    allday: true,
-    start: new Date(2023,8, 19, 19,30),
-    end: new Date(2023,8 ,19,20,30)
-  },
-  {
-    title: "LEC: Install SQL",
-    allday: true,
-    start: new Date(2023,8, 19, 20,30),
-    end: new Date(2023,8  , 19,21)
-  },
-  {
-    title: "Open Studio",
-    allday: true,
-    start: new Date(2023,8, 19, 21),
-    end: new Date(2023,8  , 19,22)
-  },
 ]
 
 export default function EventCalendar() {
@@ -99,19 +57,16 @@ export default function EventCalendar() {
   return (
     
     <div className="body">
-      <header className='calendar__header'>
-        <h1>Calendar</h1>
-      </header>
-      <div className='add__event--section'>
-      <h2>Add an Event</h2>
-      <div className='event__title--container'>
-        <input type='text' placeholder='Add Title' className='addtitle__field' style={{width:'20%', marginRight:"10px"}}
-        value={newEvent.title} onChange={(e)=> setNewEvent({...newEvent, title: e.target.value})}/>
+        <h1 className="event-header">Events</h1>
+        <a className="event-header-sub">Menu/Events</a>
+      <div className="upcoming-events">
+        <div className="card">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipMPxmmX1C3UOKtDYwRax5uEzfx0DB0_SeOTHeoZ=s1360-w1360-h1020"/>
+            <h1>Insert Event Here</h1>
+            <h2>Insert Date Here</h2>
+        </div>
       </div>
-      <DatePicker className='date__field' placeholderText='Start Date' style={{marginRight:'10px'}}
-      selected ={newEvent.start} onChange={(start)=> setNewEvent({...newEvent, start})}/>
-      <DatePicker className='date__field' placeholderText='End Date' 
-      selected ={newEvent.end} onChange={(end)=> setNewEvent({...newEvent, end})}/>
+      <div className='add__event--section'>
       <button className='event__button' style = {{margin:'10px'}} onClick={handleAddEvent}>Add Event</button>
       </div>
       <Calendar localizer={localizer} events={[...allEvents,...holidays]} startAccessor="start" endAccessor="end" className ="calendar" style = {{height:500, margin: "50px"}}></Calendar>
