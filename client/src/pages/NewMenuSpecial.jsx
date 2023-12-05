@@ -11,8 +11,16 @@ function NewMenuSpecial() {
   const [itemDescription, setItemDescription] = useState("");
   const [uploadedImage, setUploadedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
-
+  const [selectedImage, setSelectedImage] = useState(null);
   const [recommendItems, setRecommendItems] = useState([]);
+  //   const [recommendTitle, setRecommendTitle] = useState([]);
+  //   const [recommendDescription, setRecommendDescription] = useState([]);
+  //   const [recommendPrice, setRecommendPrice] = useState([]);
+  const [selectedItem, setSelectedItem] = useState({
+    name: "",
+    price: "",
+    description: "",
+  });
 
   useEffect(() => {
     // Fetch data from the server using Axios
@@ -103,6 +111,20 @@ function NewMenuSpecial() {
     });
   };
 
+  const handleRecommendationImageClick = (
+    selectedImageUrl,
+    selectedTitle,
+    selectedPrice,
+    selectedDescription
+  ) => {
+    setSelectedImage(selectedImageUrl);
+    setSelectedItem({
+      name: selectedTitle,
+      price: selectedPrice,
+      description: selectedDescription,
+    });
+  };
+
   return (
     <div className="special__main">
       <div className="special__header-container">
@@ -125,7 +147,17 @@ function NewMenuSpecial() {
           {/* Display fetched data */}
           {recommendItems.map((item) => (
             <div key={item._id}>
-              <img src={`/trends-photos/${item.image}`} />
+              <img
+                src={`/trends-photos/${item.image}`}
+                onClick={() =>
+                  handleRecommendationImageClick(
+                    `/trends-photos/${item.image}`,
+                    item.name,
+                    item.price,
+                    item.description
+                  )
+                }
+              />
 
               <div className="name-review">
                 {" "}
@@ -146,7 +178,7 @@ function NewMenuSpecial() {
             className="uploadImg"
             onClick={handleUploadBttn}
             style={{
-              backgroundImage: `url(${imagePreview})`,
+              backgroundImage: `url(${selectedImage || imagePreview})`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
@@ -170,6 +202,7 @@ function NewMenuSpecial() {
                 name="itemName"
                 placeholder="Item Name"
                 className="input-text"
+                value={selectedItem.name}
                 onChange={handleAddItemName}
               />
             </div>
@@ -180,6 +213,7 @@ function NewMenuSpecial() {
                 name="itemPrice"
                 placeholder="Item Price"
                 className="input-text"
+                value={selectedItem.price}
                 onChange={handleAddItemPrice}
               />
             </div>
@@ -194,6 +228,7 @@ function NewMenuSpecial() {
               rows="10"
               placeholder="Item Description"
               className="input-text textarea-text"
+              value={selectedItem.description}
               onChange={handleAddItemDescription}
             ></textarea>
           </div>
