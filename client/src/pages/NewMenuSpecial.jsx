@@ -1,6 +1,8 @@
 import "../assets/styles/newMenuSpecial.scss";
 import back_arrow from "../assets/Icons/Left-arrow.png";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function NewMenuSpecial() {
   const [itemName, setItemName] = useState("");
@@ -9,7 +11,30 @@ function NewMenuSpecial() {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
 
+  const [recommendItems, setRecommendItems] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from the server using Axios
+    const fetchData = async () => {
+      try {
+        const [responseFood, responseDrink] = await Promise.all([
+          axios.get("trends/food"),
+          axios.get("trends/drink"),
+        ]);
+        const foodItems = responseFood.data;
+        const drinkItems = responseDrink.data;
+        const items = [...foodItems, ...drinkItems];
+        setRecommendItems(items);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+    // Call the fetch function
+    fetchData();
+  }, []);
+
   const fileInputRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleAddItemName = (e) => {
     setItemName(e.target.value);
@@ -59,6 +84,10 @@ function NewMenuSpecial() {
 
     console.log("Submitting item:", newItem);
 
+    localStorage.setItem("newMenuItem", JSON.stringify(newItem));
+
+    navigate("/menu");
+
     setItemName("");
     setItemPrice("");
     setItemDescription("");
@@ -91,7 +120,16 @@ function NewMenuSpecial() {
       </div>
       <div>
         <h4 className="special__subheading recommend-items">Recommend Items</h4>
-        <div className="item-img"></div>
+        <div className="item-img">
+          {/* Display fetched data */}
+          {recommendItems.map((item) => (
+            <div key={item._id}>
+              <p>{item.name}</p>
+                  <p>{item.review}</p>
+                  <img src={item.photo} alt="" />
+            </div>
+          ))}
+        </div>
       </div>
       <h4 className="special__subheading">New Items</h4>
       <div className="newItem__main">
@@ -99,7 +137,11 @@ function NewMenuSpecial() {
           <button
             className="uploadImg"
             onClick={handleUploadBttn}
-            style={{ backgroundImage: `url(${imagePreview})` }}
+            style={{
+              backgroundImage: `url(${imagePreview})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
           >
             {!imagePreview && "Upload Image"}
           </button>
