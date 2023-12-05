@@ -12,7 +12,7 @@ import { MainPage } from "./pages/MainPage";
 import { Trends } from "./pages/Trends";
 import { DrinkTrends } from "./components/DrinkTrends";
 import { FoodTrends } from "./components/FoodTrends";
-
+import EventCalendar from "./pages/EventCalendar.jsx";
 import Header from "./components/Header/Header";
 import NewMenuSpecial from "./pages/NewMenuSpecial";
 import Layout from "./Layout.jsx";
@@ -27,6 +27,7 @@ function App() {
             <Route path="/trends/drink" Component={DrinkTrends} />
           </Route>
           <Route path="/menu" element={<Menu />} />
+          <Route path="/events" element={<EventCalendar />} />
           <Route path="/create-new" element={<NewMenuItem />} />
         </Route>
       </Routes>
