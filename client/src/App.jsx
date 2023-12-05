@@ -1,8 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import './App.css'
 
-// Page Components
-import NewMenuItem from './pages/new_menuitem/NewMenuItem';
 
 function App() {
 
