@@ -84,6 +84,11 @@ a{
       margin: 0;
     }
     &__container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 1328px;
+      padding: 16px 36px;
+      justify-content: space-between;
       &--item {
         color: black;
       }

@@ -26,7 +26,6 @@ export default function Menu() {
 
   return (
     <div className="menu">
-      <SideNav />
       <div className="menu__container">
         <div className="menu__top">
           <svg
@@ -96,7 +95,7 @@ export default function Menu() {
             <div className="menu__section">
               <h3 className="menu__section--title">{category.name}</h3>
               <div className="menu__section__container">
-                <MenuItem />
+                <MenuItem category={category} />
               </div>
             </div>
           ))}
