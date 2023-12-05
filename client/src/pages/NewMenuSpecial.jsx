@@ -4,40 +4,22 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import star from "../assets/Icons/Star.png";
-
 function NewMenuSpecial() {
   const [itemName, setItemName] = useState("");
   const [itemPrice, setItemPrice] = useState("");
   const [itemDescription, setItemDescription] = useState("");
   const [uploadedImage, setUploadedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
-    const [recommendItems, setRecommendItems] = useState([]);
-    useEffect(() => {
-      // Fetch data from the server using Axios
-      const fetchData = async () => {
-        try {
-          const[responseFood,responseDrink] = await Promise.all([
-            axios.get("trends/food"),
-            axios.get("trends/drink"),
-          ])
-          const foodItems = responseFood.data;
-          const drinkItems = responseDrink.data;
-          const items = [...foodItems,...drinkItems]
-          setRecommendItems(response.data);
-        } catch (error) {
-          console.error("Error fetching data:", error.message);
-        }
-      };
-      // Call the fetch function
-      fetchData();
-    }, []);
-  const fileInputRef = useRef(null);
-  const navigate = useNavigate();
-  const handleAddItemName = (e) => {
-    setItemName(e.target.value);
-  };
+  const [selectedImage, setSelectedImage] = useState(null);
   const [recommendItems, setRecommendItems] = useState([]);
-
+  //   const [recommendTitle, setRecommendTitle] = useState([]);
+  //   const [recommendDescription, setRecommendDescription] = useState([]);
+  //   const [recommendPrice, setRecommendPrice] = useState([]);
+  const [selectedItem, setSelectedItem] = useState({
+    name: "",
+    price: "",
+    description: "",
+  });
   useEffect(() => {
     // Fetch data from the server using Axios
     const fetchData = async () => {
@@ -57,25 +39,20 @@ function NewMenuSpecial() {
     // Call the fetch function
     fetchData();
   }, []);
-
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
-
   const handleAddItemName = (e) => {
     setItemName(e.target.value);
   };
-
   const handleAddItemPrice = (e) => {
     setItemPrice(e.target.value);
   };
   const handleAddItemDescription = (e) => {
     setItemDescription(e.target.value);
   };
-
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     setUploadedImage(file);
-
     // Display image preview
     if (file) {
       const reader = new FileReader();
@@ -118,6 +95,19 @@ function NewMenuSpecial() {
       preventDefault: () => {},
     });
   };
+  const handleRecommendationImageClick = (
+    selectedImageUrl,
+    selectedTitle,
+    selectedPrice,
+    selectedDescription
+  ) => {
+    setSelectedImage(selectedImageUrl);
+    setSelectedItem({
+      name: selectedTitle,
+      price: selectedPrice,
+      description: selectedDescription,
+    });
+  };
   return (
     <div className="special__main">
       <div className="special__header-container">
@@ -139,48 +129,17 @@ function NewMenuSpecial() {
           {/* Display fetched data */}
           {recommendItems.map((item) => (
             <div key={item._id}>
-              <p>{item.name}</p>
-              <img src={item.photo}></img>
-            </div>
-          ))}
-        </div>
-      </div>
-      <h4 className="special__subheading">New Items</h4>
-      <div className="newItem__main">
-        <div className="special__subcontainer">
-          <button
-            className="uploadImg"
-            onClick={handleUploadBttn}
-            style={{
-              backgroundImage: `url(${imagePreview})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-            }}
-          >
-            {!imagePreview && "Upload Image"}
-          </button>
-          <input
-            type="file"
-            accept="image/*"
-            ref={fileInputRef}
-            style={{ display: "none" }}
-            onChange={handleImageUpload}
-          />
-        </div>
-        <form className="form" onSubmit={handleSubmit}>
-          <div className="form-input">
-            <div className="input-box">
-              <label className="input-label">Item Name</label>
-              <input
-                type="text"
-                name="itemName"
-                placeholder="Item Name"
-                className="input-text"
-                onChange={handleAddItemName}
+              <img
+                src={`/trends-photos/${item.image}`}
+                onClick={() =>
+                  handleRecommendationImageClick(
+                    `/trends-photos/${item.image}`,
+                    item.name,
+                    item.price,
+                    item.description
+                  )
+                }
               />
-            </div>
-              <img src={`/trends-photos/${item.image}`} />
-
               <div className="name-review">
                 {" "}
                 <p className="item-para">{item.name}</p>
@@ -200,7 +159,7 @@ function NewMenuSpecial() {
             className="uploadImg"
             onClick={handleUploadBttn}
             style={{
-              backgroundImage: `url(${imagePreview})`,
+              backgroundImage: `url(${selectedImage || imagePreview})`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
@@ -224,6 +183,7 @@ function NewMenuSpecial() {
                 name="itemName"
                 placeholder="Item Name"
                 className="input-text"
+                value={selectedItem.name}
                 onChange={handleAddItemName}
               />
             </div>
@@ -234,6 +194,7 @@ function NewMenuSpecial() {
                 name="itemPrice"
                 placeholder="Item Price"
                 className="input-text"
+                value={selectedItem.price}
                 onChange={handleAddItemPrice}
               />
             </div>
@@ -248,6 +209,7 @@ function NewMenuSpecial() {
               rows="10"
               placeholder="Item Description"
               className="input-text textarea-text"
+              value={selectedItem.description}
               onChange={handleAddItemDescription}
             ></textarea>
           </div>
@@ -260,3 +222,13 @@ function NewMenuSpecial() {
   );
 }
 export default NewMenuSpecial;
+
+
+
+
+
+
+
+
+
+
