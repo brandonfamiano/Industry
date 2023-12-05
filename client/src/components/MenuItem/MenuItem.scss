@@ -2,8 +2,14 @@
   color: black;
   display: flex;
   flex-direction: row;
+  margin: 16px;
 
   &__text {
     padding-left: 32px;
+  }
+
+  &__image {
+    height: 127px;
+    width: 160px;
   }
 }
