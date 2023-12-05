@@ -46,24 +46,7 @@ const events =[
       start: new Date(2023,11,8),
       end: new Date(2023,11,9)
     },
-    
-    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
   ]
 export default function EventCalendar() {
   const [newEvent, setNewEvent] = useState({title:"", start:"",end:""})
