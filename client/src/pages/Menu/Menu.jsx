@@ -93,7 +93,7 @@ export default function Menu() {
             <div className="menu__section">
               <h3 className="menu__section--title">{category.name}</h3>
               <div className="menu__section__container">
-                <MenuItem />
+                <MenuItem category={category} />
               </div>
             </div>
           ))}

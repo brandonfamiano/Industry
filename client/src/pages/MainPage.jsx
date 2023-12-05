@@ -84,7 +84,7 @@ export const MainPage = () => {
   return (
     <div className="home__wrapper">
       <div className="home__nav-section">
-        <Link to="/" className="home__nav-card-button active">
+        <Link to="/menu" className="home__nav-card-button active">
           <FoodMenuIcon width={12} className="home__icon" />
           <span>current menu</span>
         </Link>
