@@ -1,0 +1,9 @@
+[
+  {
+    "category_id": "1",
+    "name": "Mole Negro Oaxaqueño",
+    "price": "$12.00",
+    "description": "Traditional Oaxacan black mole served over slow-cooked chicken, accompanied by handmade tortillas.",
+    "image": "http://localhost:8080/public/images/Rectangle 2.jpg"
+  }
+]
