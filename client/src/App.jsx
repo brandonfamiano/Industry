@@ -27,6 +27,7 @@ function App() {
             <Route path="/trends/drink" Component={DrinkTrends} />
           </Route>
           <Route path="/menu" element={<Menu />} />
+          <Route path="/special" element={<NewMenuSpecial />} />
           <Route path="/events" element={<EventCalendar />} />
           <Route path="/create-new" element={<NewMenuItem />} />
         </Route>
