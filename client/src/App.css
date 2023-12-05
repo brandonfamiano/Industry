@@ -3,7 +3,10 @@
   padding: 0;
 }
 
-a, a:visited, a:hover, a:active {
+a,
+a:visited,
+a:hover,
+a:active {
   text-decoration: none;
   color: inherit;
 }
@@ -14,7 +17,6 @@ button {
 }
 
 body {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
-
