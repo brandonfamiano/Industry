@@ -1,24 +1,19 @@
 import Backend from "./pages/Backend";
 import { Route, Routes } from "react-router-dom";
 import axios from "axios";
-import BackendTest2 from "./pages/BackendTest2";
-import BackendTrendsTest from "./pages/BackendTrendsTest";
-import BackendAddTrendsTest from "./pages/BackendAddTrendsTest";
-import BackendItemPageTest from "./pages/BackEndItemPageTest";
 axios.defaults.baseURL = "http://localhost:4000";
 import Menu from "./pages/Menu/Menu.jsx";
 import NewMenuItem from "./pages/new_menuitem/NewMenuItem";
-import "./App.css";
 import { MainPage } from "./pages/MainPage";
 import { Trends } from "./pages/Trends";
 import { DrinkTrends } from "./components/DrinkTrends";
 import { FoodTrends } from "./components/FoodTrends";
-
 import Header from "./components/Header/Header";
 import NewMenuSpecial from "./pages/NewMenuSpecial";
 function App() {
   return (
     <div>
+      <Header/>
       <Routes>
         <Route path="/" Component={MainPage} />
         <Route Component={Trends}>
@@ -27,6 +22,7 @@ function App() {
         </Route>
         <Route path="/menu" element={<Menu />} />
         <Route path="/create-new" element={<NewMenuItem />} />
+        <Route path="/create-new/special" element={<NewMenuSpecial/>}/>
       </Routes>
     </div>
   );
