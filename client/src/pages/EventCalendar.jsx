@@ -22,8 +22,49 @@ const localizer = dateFnsLocalizer({
   locales
 })
 const events =[
-]
+    {
+      title: "Wildlife Conservation Day",
+      allday: true,
+      start: new Date(2023,11, 3, 11),
+      end: new Date(2023,11  , 3, 16,45)
+    },
+    {
+      title: "World Soil DAY",
+      allday: true,
+      start: new Date(2023,11, 5, 16,45),
+      end: new Date(2023,11  , 5, 17,30)
+    },
+    {
+      title: "UNICEF Birthday",
+      allday: true,
+      start: new Date(2023,11, 11, 10),
+      end: new Date(2023,11  , 11, 11)
+    },
+    {
+      title: "National Maple Syrup Day",
+      allday: true,
+      start: new Date(2023,11,8),
+      end: new Date(2023,11,9)
+    },
+    
+    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  ]
 export default function EventCalendar() {
   const [newEvent, setNewEvent] = useState({title:"", start:"",end:""})
   const [allEvents, setAllEvents] = useState(events )
@@ -61,14 +102,12 @@ export default function EventCalendar() {
         <a className="event-header-sub">Menu/Events</a>
       <div className="upcoming-events">
         <div className="card">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMPxmmX1C3UOKtDYwRax5uEzfx0DB0_SeOTHeoZ=s1360-w1360-h1020"/>
+            <img src="https://lh3.googleuserconetnt.com/p/AF1QipMPxmmX1C3UOKtDYwRax5uEzfx0DB0_SeOTHeoZ=s1360-w1360-h1020"/>
             <h1>Insert Event Here</h1>
             <h2>Insert Date Here</h2>
         </div>
       </div>
-      <div className='add__event--section'>
-      <button className='event__button' style = {{margin:'10px'}} onClick={handleAddEvent}>Add Event</button>
-      </div>
+z
       <Calendar localizer={localizer} events={[...allEvents,...holidays]} startAccessor="start" endAccessor="end" className ="calendar" style = {{height:500, margin: "50px"}}></Calendar>
       
     </div>
