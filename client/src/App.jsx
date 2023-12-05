@@ -7,6 +7,7 @@ import BackendAddTrendsTest from "./pages/BackendAddTrendsTest";
 import BackendItemPageTest from "./pages/BackEndItemPageTest";
 axios.defaults.baseURL = "http://localhost:4000";
 import Menu from "./pages/Menu/Menu.jsx";
+import NewMenuItem from "./pages/new_menuitem/NewMenuItem";
 import "./App.css";
 import { MainPage } from "./pages/MainPage";
 import { Trends } from "./pages/Trends";
@@ -22,15 +23,8 @@ function App() {
           <Route index path="/trends/food" Component={FoodTrends} />
           <Route path="/trends/drink" Component={DrinkTrends} />
         </Route>
-        <Route path="/" element={<Backend />}></Route>
-        <Route path="/backend" element={<BackendTest2 />} />
-        <Route path="/backendTrends" element={<BackendTrendsTest />} />
-        <Route path="/backendtrends/add" element={<BackendAddTrendsTest />} />
-        <Route
-          path="/backendtrends/:itemId"
-          element={<BackendItemPageTest />}
-        />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/create-new" element={<NewMenuItem />} />
       </Routes>
     </div>
   );
