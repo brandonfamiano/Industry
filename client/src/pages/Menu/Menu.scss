@@ -8,6 +8,10 @@
     padding: 16px;
   }
 
+  &__icon {
+    align-self: center;
+  }
+
   &__top {
     display: flex;
     flex-direction: row;

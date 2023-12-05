@@ -57,6 +57,7 @@ export default function Menu() {
           <div className="menu__main--buttons">
             <a href="/" className="menu__addbutton">
               <svg
+                className="menu__icon"
                 width="24px"
                 height="24px"
                 viewBox="0 0 24 24"
@@ -73,6 +74,7 @@ export default function Menu() {
             <a href="/" className="menu__editbutton">
               {" "}
               <svg
+                className="menu__icon"
                 width="24px"
                 height="24px"
                 viewBox="0 0 24 24"
