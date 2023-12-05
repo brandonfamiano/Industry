@@ -1,0 +1,100 @@
+// .rbc-calendar{
+//     //display:none
+// }
+
+@import url(./partials/_typography.scss);
+body {
+    font-family: 'SF-Pro';
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: #f7f9f8;
+}
+
+
+.calendar__header {
+    margin-top: 0;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #f7f9f8;
+}
+
+.calendar__header h1, h2 {
+    margin-top: 0;
+    color: #f3b0c3;
+    text-shadow: 2px 2px;;
+}
+
+.addtitle__field {
+    border-radius: 4px;
+    margin-left: 1rem;
+    border: #ecd5e3;
+    background-color: #41b3a3;
+}
+
+.date__field {
+    border-radius: 4px;
+    margin-left: 1rem;
+    border: #dbe6db;
+    background-color: #85DCBA;
+}
+
+.event__button {
+    border-radius: 4px;
+    background-color: #fde0d5;
+    border-color: #fde0d5;
+}
+
+.rbc-month-row {
+    border: 2px;
+    
+}
+::placeholder{
+    color:white;
+}
+.input{
+    ::placeholder{
+        color:white;
+    }
+}
+.add__event--section {
+    background-color: #f7f9f8   ;
+    
+}
+
+.add__event--section h2 {
+    padding-left: 1rem;
+}
+.react-datepicker-popper{
+    z-index:11;
+    background:white;
+}
+.add__event--section{
+}
+.react-datepicker__input-container{
+    input{
+        font-size: 1rem;
+        color:white;
+    }
+}
+.event__title--container{
+    input{
+        font-size:1.5rem;
+        color:white;
+    }
+}
+.rbc-toolbar-label{
+    font-size:2rem;
+}
+.rbc-event{
+    background-color:#43b02a;
+    border-color:#43b02a;
+}
+.rbc-event-content{
+    background-color:#43b02a;
+    border-color:#43b02a;
+}
+.rbc-selected{
+    background-color:#43b02a;
+    border-color:#43b02a;
+}

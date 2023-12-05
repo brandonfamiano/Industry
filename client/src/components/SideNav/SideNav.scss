@@ -4,6 +4,8 @@
   height: 1044px;
   background-color: #283237;
   &__top {
+    z-index: 2; /* Ensure the sidebar stays above other content */
+  position: fixed; /* Fixed position to overlay on the content */
     &__button {
       margin: 20px;
       display: inline-block;

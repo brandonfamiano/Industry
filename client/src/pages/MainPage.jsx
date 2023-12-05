@@ -88,7 +88,7 @@ export const MainPage = () => {
           <FoodMenuIcon width={12} className="home__icon" />
           <span>current menu</span>
         </Link>
-        <Link to="/" className="home__nav-card-button">
+        <Link to="/events" className="home__nav-card-button">
           events
         </Link>
         <Link to="/trends/food" className="home__nav-card-button">

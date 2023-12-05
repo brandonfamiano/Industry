@@ -11,7 +11,31 @@ function NewMenuSpecial() {
   const [itemDescription, setItemDescription] = useState("");
   const [uploadedImage, setUploadedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
-
+    const [recommendItems, setRecommendItems] = useState([]);
+    useEffect(() => {
+      // Fetch data from the server using Axios
+      const fetchData = async () => {
+        try {
+          const[responseFood,responseDrink] = await Promise.all([
+            axios.get("trends/food"),
+            axios.get("trends/drink"),
+          ])
+          const foodItems = responseFood.data;
+          const drinkItems = responseDrink.data;
+          const items = [...foodItems,...drinkItems]
+          setRecommendItems(response.data);
+        } catch (error) {
+          console.error("Error fetching data:", error.message);
+        }
+      };
+      // Call the fetch function
+      fetchData();
+    }, []);
+  const fileInputRef = useRef(null);
+  const navigate = useNavigate();
+  const handleAddItemName = (e) => {
+    setItemName(e.target.value);
+  };
   const [recommendItems, setRecommendItems] = useState([]);
 
   useEffect(() => {
@@ -63,14 +87,11 @@ function NewMenuSpecial() {
       setImagePreview(null);
     }
   };
-
   const handleUploadBttn = () => {
     fileInputRef.current.click();
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
     // Form Validation
     if (!itemName || !itemPrice || !itemDescription || !uploadedImage) {
       alert("All fields are required");
@@ -82,27 +103,21 @@ function NewMenuSpecial() {
       itemDescription,
       uploadedImage,
     };
-
     console.log("Submitting item:", newItem);
-
     localStorage.setItem("newMenuItem", JSON.stringify(newItem));
-
     navigate("/menu");
-
     setItemName("");
     setItemPrice("");
     setItemDescription("");
     setUploadedImage(null);
     setImagePreview(null);
   };
-
   const handleAddButtonClick = () => {
     // Manually trigger the form submission when the "ADD" button is clicked
     handleSubmit({
       preventDefault: () => {},
     });
   };
-
   return (
     <div className="special__main">
       <div className="special__header-container">
@@ -111,7 +126,6 @@ function NewMenuSpecial() {
             <img src={back_arrow} />
             <h3 className="special__heading">Special</h3>
           </div>
-
           <p className="special__para">
             <a href="#">Menu</a>/<a href="#">Current Menu</a>/
             <a href="#">Create New Menu Item</a>/
@@ -125,6 +139,46 @@ function NewMenuSpecial() {
           {/* Display fetched data */}
           {recommendItems.map((item) => (
             <div key={item._id}>
+              <p>{item.name}</p>
+              <img src={item.photo}></img>
+            </div>
+          ))}
+        </div>
+      </div>
+      <h4 className="special__subheading">New Items</h4>
+      <div className="newItem__main">
+        <div className="special__subcontainer">
+          <button
+            className="uploadImg"
+            onClick={handleUploadBttn}
+            style={{
+              backgroundImage: `url(${imagePreview})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
+          >
+            {!imagePreview && "Upload Image"}
+          </button>
+          <input
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            style={{ display: "none" }}
+            onChange={handleImageUpload}
+          />
+        </div>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="form-input">
+            <div className="input-box">
+              <label className="input-label">Item Name</label>
+              <input
+                type="text"
+                name="itemName"
+                placeholder="Item Name"
+                className="input-text"
+                onChange={handleAddItemName}
+              />
+            </div>
               <img src={`/trends-photos/${item.image}`} />
 
               <div className="name-review">
