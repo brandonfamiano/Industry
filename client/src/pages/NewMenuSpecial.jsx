@@ -3,6 +3,7 @@ import back_arrow from "../assets/Icons/Left-arrow.png";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import star from "../assets/Icons/Star.png";
 
 function NewMenuSpecial() {
   const [itemName, setItemName] = useState("");
@@ -124,13 +125,16 @@ function NewMenuSpecial() {
           {/* Display fetched data */}
           {recommendItems.map((item) => (
             <div key={item._id}>
+              <img src={`/trends-photos/${item.image}`} />
+
               <div className="name-review">
                 {" "}
-                <p>{item.name}</p>
-                <p>{item.review}</p>
+                <p className="item-para">{item.name}</p>
+                <div className="star-review">
+                  <p>{item.review}</p>
+                  <img src={star} alt="" />
+                </div>
               </div>
-
-              <img src={`/trends-photos/${item.image}`} />
             </div>
           ))}
         </div>
