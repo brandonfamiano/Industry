@@ -17,7 +17,10 @@ export const Trends = () => {
         <div>
           <h3 className="trends__header-title"> Food Trends </h3>
           <div className="trends__header-breadcrumb">
-            <Link to="/">Menu</Link> / <Link to="/trends">Food Trends</Link>
+            <Link to="/">Menu</Link>/
+            <Link to="/trends/food" className="active">
+              Food Trends
+            </Link>
           </div>
         </div>
       </div>
@@ -25,20 +28,8 @@ export const Trends = () => {
       <div className="trends__content">
         <div className="trends__content-header">
           <div className="trends__tabs">
-            <NavLink
-              className={(isActive) => (isActive ? "active" : "")}
-              to="/trends/food"
-              end
-            >
-              Food Trends
-            </NavLink>
-            <NavLink
-              className={(isActive) => (isActive ? "active" : "")}
-              to="/trends/drink"
-              end
-            >
-              Drink Trends
-            </NavLink>
+            <NavLink to="/trends/food">Food Trends</NavLink>
+            <NavLink to="/trends/drink">Drink Trends</NavLink>
           </div>
           <div className="trends__content-header-search">
             <FilterIcon width={16} />

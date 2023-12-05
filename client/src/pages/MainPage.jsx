@@ -4,6 +4,7 @@ import { FoodMenuIcon } from "../assets/icons/FoodMenuIcon";
 import { LeftArrowIcon } from "../assets/icons/LeftArrowIcon";
 import { DownArrowIcon } from "../assets/icons/DownArrowIcon";
 import { HelpIcon } from "../assets/icons/HelpIcon";
+import { DotsIcon } from "../assets/icons/DotsIcon";
 import { TriArrowUpIcon } from "../assets/icons/TriArrowUpIcon";
 import { TriArrowDownIcon } from "../assets/icons/TriArrowDownIcon";
 import "../assets/styles/MainPage.css";
@@ -90,7 +91,7 @@ export const MainPage = () => {
         <Link to="/" className="home__nav-card-button">
           events
         </Link>
-        <Link to="/trends" className="home__nav-card-button">
+        <Link to="/trends/food" className="home__nav-card-button">
           food trend
         </Link>
       </div>
@@ -105,7 +106,9 @@ export const MainPage = () => {
             <button className="home__graph-header-action-button">tour</button>
             <button className="home__graph-header-action-button">export</button>
             <button className="home__graph-header-action-button">print</button>
-            <button className="home__graph-header-action-button">more</button>
+            <button className="home__graph-header-action-button">
+              <DotsIcon width={2.5} />
+            </button>
           </div>
         </div>
         <div className="home__graph-body">

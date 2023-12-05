@@ -10,7 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" Component={MainPage} />
-      <Route path="/trends" Component={Trends}>
+      <Route Component={Trends}>
         <Route index path="/trends/food" Component={FoodTrends} />
         <Route path="/trends/drink" Component={DrinkTrends} />
       </Route>

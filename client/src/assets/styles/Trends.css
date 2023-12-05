@@ -19,7 +19,7 @@
 .trends__header-breadcrumb {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 5px;
     font-size: 0.9rem;
     color: var(--gray-color);
 }
@@ -36,9 +36,6 @@
     font-size: 12px;
 }
 
-.active {
-    color: blue
-}
 
 .trends__content-header {
     display: flex;
@@ -52,4 +49,13 @@
     justify-content: space-between;
     gap: 16px;
     padding: 16px;
+}
+
+.active {
+    color: #446FA7 !important;
+}
+
+.live {
+    color: #358E20 !important;
+    text-decoration: underline;;
 }
