@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import star from "../assets/Icons/Star.png";
-
 function NewMenuSpecial() {
   const [itemName, setItemName] = useState("");
   const [itemPrice, setItemPrice] = useState("");
@@ -21,7 +20,6 @@ function NewMenuSpecial() {
     price: "",
     description: "",
   });
-
   useEffect(() => {
     // Fetch data from the server using Axios
     const fetchData = async () => {
@@ -41,25 +39,20 @@ function NewMenuSpecial() {
     // Call the fetch function
     fetchData();
   }, []);
-
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
-
   const handleAddItemName = (e) => {
     setItemName(e.target.value);
   };
-
   const handleAddItemPrice = (e) => {
     setItemPrice(e.target.value);
   };
   const handleAddItemDescription = (e) => {
     setItemDescription(e.target.value);
   };
-
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     setUploadedImage(file);
-
     // Display image preview
     if (file) {
       const reader = new FileReader();
@@ -71,14 +64,11 @@ function NewMenuSpecial() {
       setImagePreview(null);
     }
   };
-
   const handleUploadBttn = () => {
     fileInputRef.current.click();
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
     // Form Validation
     if (!itemName || !itemPrice || !itemDescription || !uploadedImage) {
       alert("All fields are required");
@@ -90,27 +80,21 @@ function NewMenuSpecial() {
       itemDescription,
       uploadedImage,
     };
-
     console.log("Submitting item:", newItem);
-
     localStorage.setItem("newMenuItem", JSON.stringify(newItem));
-
     navigate("/menu");
-
     setItemName("");
     setItemPrice("");
     setItemDescription("");
     setUploadedImage(null);
     setImagePreview(null);
   };
-
   const handleAddButtonClick = () => {
     // Manually trigger the form submission when the "ADD" button is clicked
     handleSubmit({
       preventDefault: () => {},
     });
   };
-
   const handleRecommendationImageClick = (
     selectedImageUrl,
     selectedTitle,
@@ -124,7 +108,6 @@ function NewMenuSpecial() {
       description: selectedDescription,
     });
   };
-
   return (
     <div className="special__main">
       <div className="special__header-container">
@@ -133,7 +116,6 @@ function NewMenuSpecial() {
             <img src={back_arrow} />
             <h3 className="special__heading">Special</h3>
           </div>
-
           <p className="special__para">
             <a href="#">Menu</a>/<a href="#">Current Menu</a>/
             <a href="#">Create New Menu Item</a>/
@@ -158,7 +140,6 @@ function NewMenuSpecial() {
                   )
                 }
               />
-
               <div className="name-review">
                 {" "}
                 <p className="item-para">{item.name}</p>
@@ -241,3 +222,13 @@ function NewMenuSpecial() {
   );
 }
 export default NewMenuSpecial;
+
+
+
+
+
+
+
+
+
+
