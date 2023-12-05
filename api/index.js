@@ -41,13 +41,14 @@ app.post("/menu", async (req, res) => {
 });
 app.post("/trends", async (req, res) => {
   try {
-    const { name, price, food, description, photo } = req.body;
+    const { name, price, food, description, photo, review } = req.body;
     const trendDoc = await TrendItem.create({
       name,
       price,
       food,
       description,
       photo,
+      review,
     });
     res.json(trendDoc);
   } catch (error) {
