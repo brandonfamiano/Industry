@@ -2,7 +2,9 @@
 //     //display:none
 // }
 
+@import url(./partials/_typography.scss);
 body {
+    font-family: 'SF-Pro';
     margin: 0;
     padding: 0;
     border: none;
