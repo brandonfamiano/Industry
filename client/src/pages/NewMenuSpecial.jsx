@@ -1,7 +1,78 @@
 import "../assets/styles/newMenuSpecial.scss";
 import back_arrow from "../assets/Icons/Left-arrow.png";
+import { useState, useRef } from "react";
 
 function NewMenuSpecial() {
+  const [itemName, setItemName] = useState("");
+  const [itemPrice, setItemPrice] = useState("");
+  const [itemDescription, setItemDescription] = useState("");
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+
+  const fileInputRef = useRef(null);
+
+  const handleAddItemName = (e) => {
+    setItemName(e.target.value);
+  };
+
+  const handleAddItemPrice = (e) => {
+    setItemPrice(e.target.value);
+  };
+  const handleAddItemDescription = (e) => {
+    setItemDescription(e.target.value);
+  };
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    setUploadedImage(file);
+
+    // Display image preview
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setImagePreview(null);
+    }
+  };
+
+  const handleUploadBttn = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Form Validation
+    if (!itemName || !itemPrice || !itemDescription || !uploadedImage) {
+      alert("All fields are required");
+      return;
+    }
+    const newItem = {
+      itemName,
+      itemPrice,
+      itemDescription,
+      uploadedImage,
+    };
+
+    console.log("Submitting item:", newItem);
+
+    setItemName("");
+    setItemPrice("");
+    setItemDescription("");
+    setUploadedImage(null);
+    setImagePreview(null);
+  };
+
+  const handleAddButtonClick = () => {
+    // Manually trigger the form submission when the "ADD" button is clicked
+    handleSubmit({
+      preventDefault: () => {},
+    });
+  };
+
   return (
     <div className="special__main">
       <div className="special__header-container">
@@ -25,9 +96,22 @@ function NewMenuSpecial() {
       <h4 className="special__subheading">New Items</h4>
       <div className="newItem__main">
         <div className="special__subcontainer">
-          <button className="uploadImg">Upload Image</button>
+          <button
+            className="uploadImg"
+            onClick={handleUploadBttn}
+            style={{ backgroundImage: `url(${imagePreview})` }}
+          >
+            {!imagePreview && "Upload Image"}
+          </button>
+          <input
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            style={{ display: "none" }}
+            onChange={handleImageUpload}
+          />
         </div>
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div className="form-input">
             <div className="input-box">
               <label className="input-label">Item Name</label>
@@ -36,6 +120,7 @@ function NewMenuSpecial() {
                 name="itemName"
                 placeholder="Item Name"
                 className="input-text"
+                onChange={handleAddItemName}
               />
             </div>
             <div className="input-box">
@@ -45,6 +130,7 @@ function NewMenuSpecial() {
                 name="itemPrice"
                 placeholder="Item Price"
                 className="input-text"
+                onChange={handleAddItemPrice}
               />
             </div>
           </div>
@@ -58,13 +144,15 @@ function NewMenuSpecial() {
               rows="10"
               placeholder="Item Description"
               className="input-text textarea-text"
+              onChange={handleAddItemDescription}
             ></textarea>
           </div>
         </form>
       </div>
-      <button className="add-bttn">ADD</button>
+      <button className="add-bttn" onClick={handleAddButtonClick}>
+        ADD
+      </button>
     </div>
   );
 }
-
 export default NewMenuSpecial;

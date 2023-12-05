@@ -14,10 +14,9 @@ import Layout from "./Layout.jsx";
 function App() {
   return (
     <div>
-      <Header/>
       <Routes>
-        <Route path='/' element={<Layout/>}>
-          <Route index element={<MainPage/>} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage />} />
           <Route Component={Trends}>
             <Route index path="/trends/food" Component={FoodTrends} />
             <Route path="/trends/drink" Component={DrinkTrends} />
@@ -26,7 +25,7 @@ function App() {
           <Route path="/create-new" element={<NewMenuItem />} />
         </Route>
         <Route path="/" Component={MainPage} />
-        <Route path="/create-new/special" element={<NewMenuSpecial/>}/>
+        <Route path="/create-new/special" element={<NewMenuSpecial />} />
       </Routes>
     </div>
   );
