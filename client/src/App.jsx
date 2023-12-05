@@ -10,18 +10,22 @@ import { DrinkTrends } from "./components/DrinkTrends";
 import { FoodTrends } from "./components/FoodTrends";
 import Header from "./components/Header/Header";
 import NewMenuSpecial from "./pages/NewMenuSpecial";
+import Layout from "./Layout.jsx";
 function App() {
   return (
     <div>
       <Header/>
       <Routes>
-        <Route path="/" Component={MainPage} />
-        <Route Component={Trends}>
-          <Route index path="/trends/food" Component={FoodTrends} />
-          <Route path="/trends/drink" Component={DrinkTrends} />
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<MainPage/>} />
+          <Route Component={Trends}>
+            <Route index path="/trends/food" Component={FoodTrends} />
+            <Route path="/trends/drink" Component={DrinkTrends} />
+          </Route>
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/create-new" element={<NewMenuItem />} />
         </Route>
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/create-new" element={<NewMenuItem />} />
+        <Route path="/" Component={MainPage} />
         <Route path="/create-new/special" element={<NewMenuSpecial/>}/>
       </Routes>
     </div>

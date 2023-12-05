@@ -1,9 +1,163 @@
 [
   {
-    "category_id": "1",
     "name": "Mole Negro Oaxaqueño",
+    "category": "Special",
     "price": "$12.00",
     "description": "Traditional Oaxacan black mole served over slow-cooked chicken, accompanied by handmade tortillas.",
-    "image": "http://localhost:8080/public/images/Rectangle 2.jpg"
+    "image": "http://localhost:5173/public/images/Rectangle 2.jpg"
+  },
+  {
+    "name": "Tacos de Rajas con Crema",
+    "category": "Special",
+    "price": "$15.00",
+    "description": "Roasted poblano peppers sautéed with cream and corn, served in soft corn tortillas.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-1.jpg"
+  },
+  {
+    "name": "Camarones al Mojo de Ajo",
+    "category": "Special",
+    "price": "$11.00",
+    "description": "Shrimp sautéed in a rich garlic sauce, served with Mexican-style rice.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-2.jpg"
+  },
+  {
+    "name": "Pescado a la Veracruzana",
+    "category": "Special",
+    "price": "$13.00",
+    "description": "Grilled fish fillet topped with a spicy tomato sauce with capers, olives, and herbs.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-3.jpg"
+  },
+  {
+    "name": "Barbacoa de Cordero",
+    "category": "Special",
+    "price": "$14.00",
+    "description": "Tender lamb slow-cooked in a savory broth, served with diced onions, cilantro, and salsa verde.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-4.jpg"
+  },
+  {
+    "name": "Taquitos Dorados",
+    "category": "Appetizer",
+    "price": "$6.00",
+    "description": "Crispy rolled tacos filled with shredded chicken or beef, served with guacamole, sour cream, and salsa.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-5.jpg"
+  },
+  {
+    "name": "Salsa Trio with Chips",
+    "category": "Appetizer",
+    "price": "$5.00",
+    "description": "A trio of homemade salsas – salsa verde, salsa roja, and pico de gallo – served with crispy corn tortilla chips.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-6.jpg"
+  },
+  {
+    "name": "Elote Asado",
+    "category": "Appetizer",
+    "price": "$$8.00",
+    "description": "Grilled corn on the cob coated with creamy chipotle mayo, cotija cheese, and sprinkled with chili powder.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-7.jpg"
+  },
+  {
+    "name": "Mini Quesadillas",
+    "category": "Appetizer",
+    "price": "$$9.00",
+    "description": "Small flour tortillas filled with melted cheese and a choice of chicken, beef, or mushrooms, served with salsa.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-8.jpg"
+  },
+  {
+    "name": "Ceviche Tostadas",
+    "category": "Appetizer",
+    "price": "$11.00",
+    "description": "Fresh citrus-marinated fish or shrimp served on crispy tostadas with avocado and sliced jalapeños.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-9.jpg"
+  },
+  {
+    "name": "Jalapeño Rellenos",
+    "category": "Appetizer",
+    "price": "$7.00",
+    "description": "Jalapeños stuffed with a blend of cheeses and spices, wrapped in bacon, and baked until crispy.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-10.jpg"
+  },
+  {
+    "name": "Carne Asada Plate",
+    "category": "Main",
+    "price": "$$21.00",
+    "description": "Grilled marinated steak served with Mexican rice, refried beans, guacamole, pico de gallo, and warm tortillas.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-11.jpg"
+  },
+  {
+    "name": "Pollo en Mole Poblano",
+    "category": "Main",
+    "price": "$17.00",
+    "description": "Chicken breast simmered in a traditional mole poblano sauce, a rich blend of chocolate and chilies, accompanied by white rice and corn tortillas.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-12.jpg"
+  },
+  {
+    "name": "Camarones a la Diabla",
+    "category": "Main",
+    "price": "$14.00",
+    "description": "Spicy devil shrimp sautéed in a fiery red sauce, served with rice, beans, and a lime wedge.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-13.jpg"
+  },
+  {
+    "name": "Chimichanga",
+    "category": "Main",
+    "price": "$16.00",
+    "description": "Deep-fried burrito filled with your choice of beef, chicken, or pork, topped with cheese sauce, served with rice and beans.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-14.jpg"
+  },
+  {
+    "name": "Vegetarian Enchiladas Verdes",
+    "category": "Main",
+    "price": "$11.00",
+    "description": "Corn tortillas rolled around sautéed vegetables, topped with a tangy green tomatillo sauce and melted cheese, served with rice and beans.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-15.jpg"
+  },
+  {
+    "name": "Pescado al Ajillo",
+    "category": "Main",
+    "price": "$12.00",
+    "description": "Grilled fish fillet seasoned with garlic and lime, served with a side of roasted vegetables and Mexican rice.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-16.jpg"
+  },
+  {
+    "name": "Classic Margarita",
+    "category": "Beverage",
+    "price": "$7.00",
+    "description": " A traditional blend of tequila, triple sec, and fresh lime juice, served on the rocks or blended with a salt rim.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-17.jpg"
+  },
+  {
+    "name": "Horchata",
+    "category": "Beverage",
+    "price": "$4.00",
+    "description": "A refreshing, sweet rice drink flavored with cinnamon and vanilla, served chilled.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-18.jpg"
+  },
+  {
+    "name": "Michelada",
+    "category": "Beverage",
+    "price": "$5.00",
+    "description": "A Mexican beer cocktail made with lime juice, assorted sauces, spices, and tomato juice, served in a chilled, salt-rimmed glass.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-19.jpg"
+  },
+  {
+    "name": "Agua de Jamaica",
+    "category": "Beverage",
+    "price": "$5.00",
+    "description": "A tart and sweet hibiscus tea, served cold, often sweetened with sugar and garnished with a slice of lime.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-20.jpg"
+  },
+  {
+    "name": "Paloma",
+    "category": "Beverage",
+    "price": "$8.00",
+    "description": "A popular Mexican cocktail made with tequila, lime juice, and grapefruit-flavored soda, served on the rocks with a salted rim.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-21.jpg"
+  },
+  {
+    "name": "Tamarindo Drink",
+    "category": "Beverage",
+    "price": "$4.00",
+    "description": "A sweet and sour beverage made from tamarind fruit, sugar, and water, served chilled, often with a lime wedge.",
+    "image": "http://localhost:5173/public/images/Rectangle 2-22.jpg"
   }
 ]
