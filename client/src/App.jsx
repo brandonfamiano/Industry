@@ -8,12 +8,10 @@ import BackendItemPageTest from "./pages/BackEndItemPageTest";
 axios.defaults.baseURL = "http://localhost:4000";
 import Menu from "./pages/Menu/Menu.jsx";
 import NewMenuItem from "./pages/new_menuitem/NewMenuItem";
-import "./App.css";
 import { MainPage } from "./pages/MainPage";
 import { Trends } from "./pages/Trends";
 import { DrinkTrends } from "./components/DrinkTrends";
 import { FoodTrends } from "./components/FoodTrends";
-
 import Header from "./components/Header/Header";
 import NewMenuSpecial from "./pages/NewMenuSpecial";
 function App() {
