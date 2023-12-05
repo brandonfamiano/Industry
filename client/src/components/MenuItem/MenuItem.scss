@@ -1,0 +1,9 @@
+.menu-item {
+  color: black;
+  display: flex;
+  flex-direction: row;
+
+  &__text {
+    padding-left: 32px;
+  }
+}
