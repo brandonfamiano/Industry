@@ -124,9 +124,13 @@ function NewMenuSpecial() {
           {/* Display fetched data */}
           {recommendItems.map((item) => (
             <div key={item._id}>
-              <p>{item.name}</p>
-                  <p>{item.review}</p>
-                  <img src={item.photo} alt="" />
+              <div className="name-review">
+                {" "}
+                <p>{item.name}</p>
+                <p>{item.review}</p>
+              </div>
+
+              <img src={`/trends-photos/${item.image}`} />
             </div>
           ))}
         </div>
