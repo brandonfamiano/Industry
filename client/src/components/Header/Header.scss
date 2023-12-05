@@ -1,5 +1,4 @@
 @import "../../assets/styles/partials/variables";
-@import "../../assets/styles/partials/typography";
 
 .header {
   &__main {
@@ -47,7 +46,8 @@
     padding-right: 40px;
   }
   &__text {
-    font-family: "SF pro bold";
+    font-family: sans-serif;
+    font-weight: 700;
     color: $grey;
     font-size: 16px;
     line-height: 24px;

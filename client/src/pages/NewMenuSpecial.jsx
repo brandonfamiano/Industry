@@ -3,6 +3,8 @@ import back_arrow from "../assets/Icons/Left-arrow.png";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import star from "../assets/Icons/Star.png";
+
 function NewMenuSpecial() {
   const [itemName, setItemName] = useState("");
   const [itemPrice, setItemPrice] = useState("");
@@ -34,15 +36,46 @@ function NewMenuSpecial() {
   const handleAddItemName = (e) => {
     setItemName(e.target.value);
   };
+  const [recommendItems, setRecommendItems] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from the server using Axios
+    const fetchData = async () => {
+      try {
+        const [responseFood, responseDrink] = await Promise.all([
+          axios.get("trends/food"),
+          axios.get("trends/drink"),
+        ]);
+        const foodItems = responseFood.data;
+        const drinkItems = responseDrink.data;
+        const items = [...foodItems, ...drinkItems];
+        setRecommendItems(items);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+    // Call the fetch function
+    fetchData();
+  }, []);
+
+  const fileInputRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleAddItemName = (e) => {
+    setItemName(e.target.value);
+  };
+
   const handleAddItemPrice = (e) => {
     setItemPrice(e.target.value);
   };
   const handleAddItemDescription = (e) => {
     setItemDescription(e.target.value);
   };
+
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     setUploadedImage(file);
+
     // Display image preview
     if (file) {
       const reader = new FileReader();
@@ -108,6 +141,54 @@ function NewMenuSpecial() {
             <div key={item._id}>
               <p>{item.name}</p>
               <img src={item.photo}></img>
+            </div>
+          ))}
+        </div>
+      </div>
+      <h4 className="special__subheading">New Items</h4>
+      <div className="newItem__main">
+        <div className="special__subcontainer">
+          <button
+            className="uploadImg"
+            onClick={handleUploadBttn}
+            style={{
+              backgroundImage: `url(${imagePreview})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
+          >
+            {!imagePreview && "Upload Image"}
+          </button>
+          <input
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            style={{ display: "none" }}
+            onChange={handleImageUpload}
+          />
+        </div>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="form-input">
+            <div className="input-box">
+              <label className="input-label">Item Name</label>
+              <input
+                type="text"
+                name="itemName"
+                placeholder="Item Name"
+                className="input-text"
+                onChange={handleAddItemName}
+              />
+            </div>
+              <img src={`/trends-photos/${item.image}`} />
+
+              <div className="name-review">
+                {" "}
+                <p className="item-para">{item.name}</p>
+                <div className="star-review">
+                  <p>{item.review}</p>
+                  <img src={star} alt="" />
+                </div>
+              </div>
             </div>
           ))}
         </div>

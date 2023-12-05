@@ -3,8 +3,10 @@ import SideNav from "../../components/SideNav/SideNav";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import "../../data/food-menu.json";
 import { Link } from "react-router-dom";
-
+import { useEffect, useState } from "react";
 export default function Menu() {
+  const [newItem, setNewItem] = useState(null);
+
   const categories = [
     {
       id: 1,
@@ -23,6 +25,26 @@ export default function Menu() {
       name: "Beverage",
     },
   ];
+
+  useEffect(() => {
+    // Retrieve the stored item from localStorage
+    const storedItem = localStorage.getItem("newMenuItem");
+
+    if (storedItem) {
+      const newItemData = JSON.parse(storedItem);
+      console.log("Received new item in /menu:", newItemData);
+
+      // Set the new item to state
+      setNewItem(newItemData);
+    }
+    // Clear the stored item in localStorage
+    localStorage.removeItem("newMenuItem");
+  }, []);
+
+  // Function to filter items based on category
+  const filterItemsByCategory = (categoryName) => {
+    return categories.find((category) => category.name === "Special");
+  };
 
   return (
     <div className="menu">
@@ -55,7 +77,7 @@ export default function Menu() {
         </div>
         <div className="menu__main">
           <div className="menu__main--buttons">
-            <a href="/" className="menu__addbutton">
+            <a href="/create-new" className="menu__addbutton">
               <svg
                 className="menu__icon"
                 width="24px"
