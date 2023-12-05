@@ -2,6 +2,7 @@ import "./Menu.scss";
 import SideNav from "../../components/SideNav/SideNav";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import "../../data/food-menu.json";
+import { Link } from "react-router-dom";
 
 export default function Menu() {
   const categories = [
@@ -69,7 +70,9 @@ export default function Menu() {
                   fill="#FFFFFF"
                 />
               </svg>
+              <Link to ='/create-new'>
               <p className="menu__button--text additem">ADD NEW ITEM</p>
+              </Link>
             </a>
             <a href="/" className="menu__editbutton">
               {" "}

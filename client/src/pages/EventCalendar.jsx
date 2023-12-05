@@ -29,6 +29,55 @@ const events =[
       end: new Date(2023,11  , 3, 16,45)
     },
     {
+        title: "Boston Small Group Food/History Tour",
+        allday: true,
+        start: new Date(2023,11, 1, 3),
+        end: new Date(2023,11  , 1, 6)
+      },
+      {
+        title: "The Best of Boston - Food Tours by Cozymeal™",
+        allday: true,
+        start: new Date(2023,11, 28, 3),
+        end: new Date(2023,11  , 28, 6)
+      },
+      {
+        title: "Boston North End: Food Tour",
+        allday: true,
+        start: new Date(2023,11, 23, 10),
+        end: new Date(2023,11  , 23, 13)
+      },
+      {
+        title: "Harvard Square Food Tour",
+        allday: true,
+        start: new Date(2023,11, 16, 11),
+        end: new Date(2023,11  , 16, 14)
+      },
+      {
+        title: "Common Culture: Pasta Two Ways:Boston",
+        allday: true,
+        start: new Date(2023,11, 5, 11),
+        end: new Date(2023,11  , 5, 14)
+      },
+      {
+        title: "Boston’s “Little Italy” North End Pizza & History Walking Food Tour",
+        allday: true,
+        start: new Date(2023,11, 15, 11),
+        end: new Date(2023,11  , 15, 14)
+      },
+      {
+        title: "The Official Ugly Sweater Bar Crawl - Boston",
+        allday: true,
+        start: new Date(2023,11, 9, 19),
+        end: new Date(2023,11  , 9, 22)
+      },
+      {
+        title: "SOWA Winter Festival / Maybe Dinner-Boston",
+        allday: true,
+        start: new Date(2023,11, 17, 19),
+        end: new Date(2023,11  , 17, 22)
+      },
+      
+    {
       title: "World Soil DAY",
       allday: true,
       start: new Date(2023,11, 5, 16,45),

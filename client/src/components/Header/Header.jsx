@@ -6,16 +6,18 @@ import down_arrow from "../../assets/Icons/Down-arrow.png";
 import help_icon from "../../assets/Icons/Help-icon.png";
 import settings_icon from "../../assets/Icons/Settings-icon.png";
 import "./Header.scss";
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <div className="header__main">
       <div className="header__left">
+        
         <img
           src={menu_icon}
           alt="hamburger menu bar"
           className="header__left--hamburger"
         />
-        <img src={clover_logo} alt="app logo" className="header__left--logo" />
+        <img src={clover_logo} alt="app logo" className="header__left--logo"/>
         <p className="header__text">Fiesta</p>
       </div>
 
